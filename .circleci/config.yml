@@ -15,7 +15,7 @@ workflows:
   echo-test-newman:
     jobs:
       - checkout
-      - newman/newman-run"
+      - newman/newman-run
         collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
 
 
