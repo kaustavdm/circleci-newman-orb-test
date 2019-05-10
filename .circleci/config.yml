@@ -3,11 +3,19 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.1
 
-jobs:
+# jobs:
+#   echo-test-newman:
+#     executor: newman/postman-newman-docker
+#     steps:
+#       - checkout
+#       - newman/newman-run:
+#         collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
+
+workflows:
   echo-test-newman:
-    executor: newman/postman-newman-docker
-    steps:
+    jobs:
       - checkout
-      - newman/newman-run:
+      - newman/newman-run"
         collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
+
 
