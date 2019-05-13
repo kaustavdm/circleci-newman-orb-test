@@ -12,6 +12,9 @@ jobs:
           collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
           additional-options: -r cli,junit
       - run:
+          name: Install dependencies
+          command: apk add --update ca-certificates openssl && update-ca-certificates
+      - run:
           name: Save test results
           command: |
             mkdir -p ~/test-results/newman
