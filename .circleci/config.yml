@@ -9,7 +9,6 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          name: Newman Run
           collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
           additional-options: -r cli,junit
       - run:
