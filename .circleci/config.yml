@@ -11,5 +11,9 @@ jobs:
       - newman/newman-run:
           collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
           additional-options: -r cli,junit
+      - store_test_results:
+          path: ./newman
+      - store_artifacts:
+          path: ./newman
 
 
