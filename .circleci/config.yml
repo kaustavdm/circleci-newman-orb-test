@@ -9,11 +9,17 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
+          name: Newman Run
           collection: ./tests/CircleCI\ newman\ orb\ test.postman_collection.json
           additional-options: -r cli,junit
+      - run:
+          name: Save test results
+          command: |
+            mkdir -p ~/test-results/newman
+            cp ./newman/newman-run-report-*.xml ~/test-results/newman/
       - store_test_results:
-          path: ./newman
+          path: ~/test-results
       - store_artifacts:
-          path: ./newman
+          path: ~/test-results/newman
 
 
